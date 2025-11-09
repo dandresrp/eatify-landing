@@ -22,13 +22,6 @@ const contactMethods = [
     link: "https://wa.me/50433221234",
     description: "Chat directo con nuestro equipo",
   },
-  {
-    icon: "📍",
-    title: "Ubicación",
-    value: "San Pedro Sula, Honduras",
-    link: "#",
-    description: "Oficina principal",
-  },
 ];
 ---
 
@@ -47,9 +40,7 @@ const contactMethods = [
     </div>
 
     <!-- Contact Methods Grid -->
-    <div
-      class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16"
-    >
+    <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
       {
         contactMethods.map((method) => (
           <a
