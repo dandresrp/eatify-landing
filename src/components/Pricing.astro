@@ -1,0 +1,236 @@
+---
+// Pricing Section - Eatify Landing Page
+const freePlanFeatures = [
+  "Escaneo básico de códigos de barras",
+  "Alertas de vencimiento automáticas",
+  "Recetas simples sugeridas",
+  "Gestión de productos básica",
+  "Notificaciones por email",
+];
+
+const premiumPlanFeatures = [
+  "Todo lo del plan gratuito",
+  "Recetas personalizadas por dieta (keto, vegana, sin gluten, etc.)",
+  "Planes nutricionales según condiciones médicas",
+  "Reportes avanzados de consumo y ahorro",
+  "Estadísticas detalladas de desperdicio",
+  "Recomendaciones nutricionales avanzadas",
+  "Planes de comida inteligentes semanales",
+  "Historial completo y seguimiento",
+  "Soporte prioritario",
+  "Sin anuncios",
+];
+
+const referralBenefits = [
+  "Programa de referidos: 1 mes gratis por cada amigo que se suscriba",
+  "Prueba Premium gratis por 30 días",
+  "50% de descuento en plan anual durante el lanzamiento",
+];
+---
+
+<section id="pricing" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        Planes diseñados para
+        <span class="text-emerald-600">cada necesidad</span>
+      </h2>
+      <p class="text-lg text-gray-600">
+        Comienza gratis y actualiza cuando estés listo para desbloquear todo el
+        potencial de Eatify
+      </p>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+      <!-- Free Plan -->
+      <div
+        class="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-gray-300 transition-all hover:shadow-lg"
+      >
+        <div class="mb-6">
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">Plan Gratuito</h3>
+          <p class="text-gray-600">
+            Perfecto para comenzar tu viaje hacia una mejor gestión alimentaria
+          </p>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex items-baseline gap-2">
+            <span class="text-5xl font-bold text-gray-900">L. 0</span>
+            <span class="text-gray-600">/mes</span>
+          </div>
+          <p class="text-sm text-gray-500 mt-2">Gratis para siempre</p>
+        </div>
+
+        <ul class="space-y-4 mb-8">
+          {
+            freePlanFeatures.map((feature) => (
+              <li class="flex items-start gap-3">
+                <svg
+                  class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="text-gray-700">{feature}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <a
+          href="#download"
+          class="block w-full text-center px-6 py-4 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition-all hover:scale-105"
+        >
+          Descargar gratis
+        </a>
+      </div>
+
+      <!-- Premium Plan -->
+      <div
+        class="bg-gradient-to-br from-emerald-500 to-lime-500 rounded-3xl p-8 text-white relative overflow-hidden shadow-2xl transform lg:scale-105"
+      >
+        {/* Popular Badge */}
+        <div
+          class="absolute top-4 right-4 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold"
+        >
+          Más Popular
+        </div>
+
+        <div class="mb-6 relative z-10">
+          <h3 class="text-2xl font-bold mb-2">Plan Premium</h3>
+          <p class="text-emerald-50">
+            Desbloquea todo el potencial de Eatify y transforma tu alimentación
+          </p>
+        </div>
+
+        <div class="mb-8 relative z-10">
+          <div class="flex items-baseline gap-2 mb-2">
+            <span class="text-5xl font-bold">L. 49.99</span>
+            <span class="text-emerald-100">/mes</span>
+          </div>
+          <div class="flex items-baseline gap-2 mb-3">
+            <span class="text-2xl font-bold">L. 499.99</span>
+            <span class="text-emerald-100">/año</span>
+            <span
+              class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs font-bold rounded"
+              >AHORRA 17%</span
+            >
+          </div>
+
+          {/* Launch Promo */}
+          <div
+            class="inline-flex items-center gap-2 px-3 py-2 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30"
+          >
+            <span class="text-xl">🎉</span>
+            <span class="text-sm font-semibold"
+              >50% OFF en plan anual durante el lanzamiento</span
+            >
+          </div>
+        </div>
+
+        <ul class="space-y-4 mb-8 relative z-10">
+          {
+            premiumPlanFeatures.map((feature) => (
+              <li class="flex items-start gap-3">
+                <svg
+                  class="w-6 h-6 text-white flex-shrink-0 mt-0.5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="text-white font-medium">{feature}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <a
+          href="#download"
+          class="block w-full text-center px-6 py-4 bg-white text-emerald-600 rounded-xl font-semibold hover:bg-gray-50 transition-all hover:scale-105 shadow-lg relative z-10"
+        >
+          Probar 30 días gratis
+        </a>
+
+        <p class="text-center text-sm text-emerald-50 mt-4 relative z-10">
+          No se requiere tarjeta de crédito
+        </p>
+
+        {/* Decorative Elements */}
+        <div
+          class="absolute -bottom-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"
+        >
+        </div>
+        <div
+          class="absolute -top-20 -left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"
+        >
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Benefits -->
+    <div class="max-w-4xl mx-auto">
+      <div
+        class="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-2xl p-8 border-2 border-yellow-200"
+      >
+        <h3
+          class="text-xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center gap-2"
+        >
+          <span class="text-2xl">🎁</span>
+          Promociones especiales de lanzamiento
+        </h3>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {
+            referralBenefits.map((benefit) => (
+              <div class="flex items-start gap-3">
+                <svg
+                  class="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <p class="text-gray-700 text-sm leading-relaxed">{benefit}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Hint -->
+    <div class="mt-12 text-center">
+      <p class="text-gray-600 mb-4">¿Tienes preguntas sobre los planes?</p>
+      <a
+        href="#faq"
+        class="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors"
+      >
+        Ver preguntas frecuentes
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,118 @@
+---
+// Features Section - Eatify Landing Page
+const features = [
+  {
+    icon: "📸",
+    title: "Escaneo Inteligente",
+    description:
+      "Escanea códigos de barras o fotografía tus tickets de compra. La tecnología reconoce automáticamente tus productos y fechas de vencimiento.",
+    color: "emerald",
+  },
+  {
+    icon: "⏰",
+    title: "Alertas de Vencimiento",
+    description:
+      "Recibe notificaciones automáticas antes de que tus alimentos se venzan. Nunca más desperdicies comida por olvido.",
+    color: "amber",
+  },
+  {
+    icon: "🍳",
+    title: "Recetas Personalizadas",
+    description:
+      "Obtén sugerencias de recetas basadas en los ingredientes que tienes disponibles y tu tipo de dieta preferida.",
+    color: "rose",
+  },
+  {
+    icon: "🥗",
+    title: "Asistente Nutricional",
+    description:
+      "Planes nutricionales inteligentes adaptados a tus objetivos, condiciones médicas y nivel de actividad física.",
+    color: "lime",
+  },
+  {
+    icon: "📊",
+    title: "Estadísticas Detalladas",
+    description:
+      "Visualiza tu historial de consumo, ahorro generado y desperdicio evitado con reportes completos y fáciles de entender.",
+    color: "blue",
+  },
+  {
+    icon: "💰",
+    title: "Ahorro Inteligente",
+    description:
+      "Mide cuánto dinero ahorras reduciendo el desperdicio. Eatify te ayuda a optimizar tu presupuesto alimentario.",
+    color: "green",
+  },
+];
+
+const colorVariants: Record<string, string> = {
+  emerald: "bg-emerald-100 text-emerald-600",
+  amber: "bg-amber-100 text-amber-600",
+  rose: "bg-rose-100 text-rose-600",
+  lime: "bg-lime-100 text-lime-600",
+  blue: "bg-blue-100 text-blue-600",
+  green: "bg-green-100 text-green-600",
+};
+---
+
+<section id="features" class="py-20 bg-white">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        Todo lo que necesitas para
+        <span class="text-emerald-600">gestionar tu alimentación</span>
+      </h2>
+      <p class="text-lg text-gray-600">
+        Funciones inteligentes diseñadas para simplificar tu vida y mejorar tu
+        relación con la comida
+      </p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        features.map((feature) => (
+          <div class="group p-6 rounded-2xl border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 bg-white">
+            <div
+              class={`inline-flex items-center justify-center w-14 h-14 rounded-xl ${colorVariants[feature.color]} mb-4 text-3xl group-hover:scale-110 transition-transform duration-300`}
+            >
+              {feature.icon}
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">
+              {feature.title}
+            </h3>
+            <p class="text-gray-600 leading-relaxed">{feature.description}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Additional Info -->
+    <div class="mt-16 text-center">
+      <div
+        class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-50 rounded-full border border-emerald-200"
+      >
+        <svg
+          class="w-5 h-5 text-emerald-600"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <span class="text-emerald-800 font-medium"
+          >Y muchas más funciones en constante desarrollo</span
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .group:hover {
+    transform: translateY(-4px);
+  }
+</style>

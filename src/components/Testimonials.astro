@@ -1,0 +1,193 @@
+---
+// Testimonials Section - Eatify Landing Page
+const testimonials = [
+  {
+    name: "María Fernanda López",
+    location: "San Pedro Sula, Cortés",
+    role: "Madre de familia",
+    image: "👩‍💼",
+    rating: 5,
+    text: "Desde que uso Eatify he reducido el desperdicio de comida en mi casa casi a la mitad. Las alertas me salvan de tirar alimentos que se me olvidaban en el refrigerador. ¡He ahorrado más de L. 400 este mes!",
+    highlight: "Ahorro de L. 400/mes",
+  },
+  {
+    name: "Carlos Enrique Martínez",
+    location: "Tegucigalpa, Francisco Morazán",
+    role: "Profesional independiente",
+    image: "👨‍💻",
+    rating: 5,
+    text: "Las recetas personalizadas son increíbles. Como persona diabética, necesitaba controlar mejor mi alimentación y Eatify me da sugerencias perfectas con los ingredientes que tengo. Muy recomendado.",
+    highlight: "Perfecto para diabéticos",
+  },
+  {
+    name: "Ana Lucía Rodríguez",
+    location: "San Pedro Sula, Cortés",
+    role: "Estudiante universitaria",
+    image: "👩‍🎓",
+    rating: 5,
+    text: "Me encanta lo fácil que es escanear mis compras. Ya no tengo que preocuparme por anotar fechas o recordar qué compré. La app lo hace todo automáticamente. ¡Es súper práctica!",
+    highlight: "Súper fácil de usar",
+  },
+  {
+    name: "Roberto Suazo",
+    location: "Tegucigalpa, Francisco Morazán",
+    role: "Chef profesional",
+    image: "👨‍🍳",
+    rating: 5,
+    text: "Como chef, aprecio la variedad de recetas y cómo se adaptan a diferentes dietas. Uso Eatify tanto en casa como para inspirarme en nuevos platillos. La función de estadísticas también me ayuda a ver mi desperdicio.",
+    highlight: "Excelente variedad de recetas",
+  },
+  {
+    name: "Daniela Gómez",
+    location: "La Ceiba, Atlántida",
+    role: "Emprendedora",
+    image: "👩‍💼",
+    rating: 5,
+    text: "El plan Premium vale cada lempira. Los reportes de ahorro son muy detallados y me ayudan a optimizar mi presupuesto familiar. Además, el soporte es excelente. ¡100% recomendada!",
+    highlight: "Premium vale la pena",
+  },
+  {
+    name: "José Luis Hernández",
+    location: "Comayagua, Comayagua",
+    role: "Padre de familia",
+    image: "👨‍👧‍👦",
+    rating: 5,
+    text: "Mi esposa y yo queríamos comer más saludable pero sin complicarnos. Eatify nos da planes de comida semanales y nos recuerda usar los alimentos antes de que se venzan. ¡Nos cambió la vida!",
+    highlight: "Cambió nuestra alimentación",
+  },
+];
+---
+
+<section
+  id="testimonials"
+  class="py-20 bg-gradient-to-b from-emerald-50 to-white"
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        Lo que dicen nuestros
+        <span class="text-emerald-600">usuarios en Honduras</span>
+      </h2>
+      <p class="text-lg text-gray-600">
+        Miles de hondureños ya están mejorando su alimentación y ahorrando
+        dinero con Eatify
+      </p>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      {
+        testimonials.map((testimonial) => (
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-1">
+            {/* Header */}
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-14 h-14 rounded-full bg-gradient-to-br from-emerald-400 to-lime-500 flex items-center justify-center text-2xl">
+                {testimonial.image}
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900">{testimonial.name}</h4>
+                <p class="text-sm text-gray-600">{testimonial.role}</p>
+                <p class="text-xs text-gray-500">{testimonial.location}</p>
+              </div>
+            </div>
+
+            {/* Stars */}
+            <div class="flex gap-1 mb-4">
+              {Array.from({ length: testimonial.rating }).map(() => (
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+
+            {/* Testimonial Text */}
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              "{testimonial.text}"
+            </p>
+
+            {/* Highlight */}
+            <div class="inline-flex items-center gap-2 px-3 py-2 bg-emerald-50 rounded-lg border border-emerald-200">
+              <svg
+                class="w-4 h-4 text-emerald-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span class="text-sm font-semibold text-emerald-700">
+                {testimonial.highlight}
+              </span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Trust Indicators -->
+    <div class="mt-16 max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="p-6">
+          <div class="text-4xl font-bold text-emerald-600 mb-2">4.8/5</div>
+          <div class="flex justify-center gap-1 mb-2">
+            {
+              Array.from({ length: 5 }).map((_, i) => (
+                <svg
+                  class={`w-5 h-5 ${i < 4 ? "text-yellow-400" : "text-gray-300"}`}
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))
+            }
+          </div>
+          <p class="text-gray-600 text-sm">Calificación promedio</p>
+        </div>
+
+        <div class="p-6">
+          <div class="text-4xl font-bold text-emerald-600 mb-2">10K+</div>
+          <p class="text-gray-600">Usuarios activos en Honduras</p>
+        </div>
+
+        <div class="p-6">
+          <div class="text-4xl font-bold text-emerald-600 mb-2">95%</div>
+          <p class="text-gray-600">Recomiendan Eatify a amigos</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 text-center">
+      <p class="text-gray-700 mb-6 text-lg">
+        Únete a miles de hondureños que ya confían en Eatify
+      </p>
+      <a
+        href="#download"
+        class="inline-flex items-center gap-2 px-8 py-4 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition-all hover:scale-105 shadow-lg"
+      >
+        Comienza tu prueba gratuita
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

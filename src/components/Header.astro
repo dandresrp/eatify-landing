@@ -1,0 +1,216 @@
+---
+// Header/Navigation - Eatify Landing Page
+const navLinks = [
+  { name: "Características", href: "#features" },
+  { name: "Beneficios", href: "#benefits" },
+  { name: "Cómo funciona", href: "#how-it-works" },
+  { name: "Precios", href: "#pricing" },
+  { name: "Testimonios", href: "#testimonials" },
+];
+---
+
+<header
+  id="header"
+  class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-all duration-300"
+>
+  <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 group">
+        <div
+          class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-lime-500 rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform"
+        >
+          🍽️
+        </div>
+        <span class="text-xl md:text-2xl font-bold text-gray-900">
+          Eatify
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center gap-8">
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="text-gray-700 hover:text-emerald-600 font-medium transition-colors relative group"
+            >
+              {link.name}
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 group-hover:w-full transition-all duration-300" />
+            </a>
+          ))
+        }
+      </div>
+
+      <!-- CTA Button Desktop -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a
+          href="#download"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition-all hover:scale-105 shadow-lg hover:shadow-xl"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+            ></path>
+          </svg>
+          Descargar App
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="lg:hidden p-2 text-gray-700 hover:text-emerald-600 transition-colors"
+        aria-label="Abrir menú"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden hidden bg-white border-t border-gray-200"
+  >
+    <div class="container mx-auto px-4 py-6 space-y-4">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="block py-2 text-gray-700 hover:text-emerald-600 font-medium transition-colors mobile-menu-link"
+          >
+            {link.name}
+          </a>
+        ))
+      }
+
+      <div class="pt-4 border-t border-gray-200">
+        <a
+          href="#download"
+          class="flex items-center justify-center gap-2 w-full px-6 py-3 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition-all shadow-lg"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+            ></path>
+          </svg>
+          Descargar App
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer to prevent content from hiding under fixed header -->
+<div class="h-16 md:h-20"></div>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuLinks = document.querySelectorAll(".mobile-menu-link");
+
+  mobileMenuButton?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+
+    // Toggle icon
+    const icon = mobileMenuButton.querySelector("svg");
+    const isOpen = !mobileMenu?.classList.contains("hidden");
+
+    if (icon) {
+      icon.innerHTML = isOpen
+        ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>'
+        : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+    }
+  });
+
+  // Close mobile menu when clicking a link
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu?.classList.add("hidden");
+      const icon = mobileMenuButton?.querySelector("svg");
+      if (icon) {
+        icon.innerHTML =
+          '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+      }
+    });
+  });
+
+  // Add shadow to header on scroll
+  const header = document.getElementById("header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 10) {
+      header?.classList.add("shadow-lg");
+    } else {
+      header?.classList.remove("shadow-lg");
+    }
+  });
+
+  // Smooth scroll for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener(
+      "click",
+      function (this: HTMLAnchorElement, e: Event) {
+        const href = this.getAttribute("href");
+        if (href && href !== "#") {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            const headerOffset = 80; // Height of fixed header
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+        }
+      }
+    );
+  });
+</script>
+
+<style>
+  /* Smooth transition for header */
+  #header {
+    transition: box-shadow 0.3s ease;
+  }
+
+  /* Active link indicator on scroll */
+  @media (min-width: 1024px) {
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+  }
+</style>
