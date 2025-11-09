@@ -1,5 +1,7 @@
 ---
 // Header/Navigation - Eatify Landing Page
+import logo from "@assets/logo.webp";
+
 const navLinks = [
   { name: "Características", href: "#features" },
   { name: "Beneficios", href: "#benefits" },
@@ -16,13 +18,15 @@ const navLinks = [
   <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-2 group">
-        <div
-          class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-lime-500 rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform"
+      <a href="#" class="flex items-center gap-3 group">
+        <img
+          src={logo.src}
+          alt="Eatify Logo"
+          class="h-12 md:h-14 w-auto group-hover:scale-105 transition-transform"
+        />
+        <span
+          class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors"
         >
-          🍽️
-        </div>
-        <span class="text-xl md:text-2xl font-bold text-gray-900">
           Eatify
         </span>
       </a>
